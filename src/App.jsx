@@ -1,7 +1,9 @@
+import { Header } from "./views/Header";
+
 function App() {
   return (
     <>
-
+      <Header/>
     </>
   );
 }
