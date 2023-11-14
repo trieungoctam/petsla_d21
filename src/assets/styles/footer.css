@@ -3,7 +3,17 @@
     background-size: cover;
     transition: transform 4s,-webkit-transform 4s;
     width: 100%;
+    transition: 2.6s;
 }
+
+.footer_banner_img:hover{
+    transform: scale(1.05);
+}
+
+.footer_banner {
+    overflow: hidden;
+}
+
 .footer_contain{
     color: gray;
     margin: 0 auto;

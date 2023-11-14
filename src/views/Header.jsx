@@ -10,10 +10,10 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import logoPetsla from "../assets/images/logofull.png";
-import header from "../assets/styles/header.css";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import "../assets/styles/header.css";
 
-export function Header() {
+export default function Header() {
   return (
     <Router>
       <div>
@@ -111,11 +111,11 @@ export function Header() {
         </div>
 
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/shop" element={<Shop/>}></Route>
-          <Route path="/cart" element={<Cart/>}></Route>
-          <Route path="/contact" element={<Contact/>}></Route>
-          <Route path="/account" element={<Account/>}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/shop" element={<Shop />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/account" element={<Account />}></Route>
         </Routes>
       </div>
     </Router>
