@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/styles/footer.css";
-import pathimg from "../assets/footer/bannerProduct.png";
+import pathimg from "../assets/images/bannerProduct.png";
 const Footer = () => {
   return (
     <div>
