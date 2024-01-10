@@ -2,7 +2,8 @@ import React from "react";
 import ProductItem from "./ProductItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import product from '../assets/styles/productItem.css'
+import  '../assets/styles/productItem.css'
+
 export default function ProductList() {
   const [productList, setProductList] = useState([]);
   const fetchApi = async () => {

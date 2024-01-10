@@ -1,5 +1,5 @@
 import React from "react";
-import detailsProduct from "../assets/styles/detailsProduct.css";
+import  "../assets/styles/detailsProduct.css";
 
 export default function DetailsProduct() {
   return (

@@ -1,5 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ProductList from '../components/ProductList'
+import Shop from "../components/Shop";
 import {
   faEnvelope,
   faPhone,
@@ -79,6 +81,7 @@ export default function Header() {
               </div>
             </div>
           </div>
+          
           <div className="header-nav grid wide">
             <ul className="header-nav-list">
               <li className="header-nav-item">
@@ -129,13 +132,8 @@ function Home() {
     </div>
   );
 }
-function Shop() {
-  return (
-    <div>
-      <h2>Shop</h2>
-    </div>
-  );
-}
+
+
 function Cart() {
   return (
     <div>
