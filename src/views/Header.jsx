@@ -1,7 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ProductList from '../components/ProductList'
 import Shop from "../components/Shop";
+import  Cart  from "../components/Cart";
+import CustomerInfor from "../components/CustomerInfor";
+import Cartcount from "../components/Cartcount";
+
 import {
   faEnvelope,
   faPhone,
@@ -76,7 +79,8 @@ export default function Header() {
                     icon={faCartShopping}
                     className="header-mid-cart-icon"
                   />
-                  <div className="header-mid-cart-count">0</div>
+                  {/* <div className="header-mid-cart-count">0</div> */}
+                  <Cartcount/>
                 </div>
               </div>
             </div>
@@ -119,6 +123,7 @@ export default function Header() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/account" element={<Account />}></Route>
+          <Route path="/customerInfor" element={<CustomerInfor/>}></Route>
         </Routes>
       </div>
     </Router>
@@ -133,14 +138,6 @@ function Home() {
   );
 }
 
-
-function Cart() {
-  return (
-    <div>
-      <h2>Cart</h2>
-    </div>
-  );
-}
 function Contact() {
   return (
     <div>

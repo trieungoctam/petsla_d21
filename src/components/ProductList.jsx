@@ -17,10 +17,15 @@ export default function ProductList() {
       console.log(error.response);
     }
   };
-
   useEffect(() => {
     fetchApi();
   }, []);
+
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
 
   return (
     <div className="product-list">
@@ -29,6 +34,7 @@ export default function ProductList() {
             <ProductItem id={product.id} productName={product.product_name} price = {product.price} images={product.images}/>
           )
         })}
+        
     </div>
   );
 }
