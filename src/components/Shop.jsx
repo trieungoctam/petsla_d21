@@ -1,13 +1,17 @@
-import React from 'react'
-import ProductList from './ProductList'
+import React from "react";
+import ProductList from "./ProductList";
+import ProductListSort from "./ProductListSort";
+import ProductListPage from "./ProductListPage";
 export const Shop = () => {
   return (
     <div>
-      <div className='grid wide'>
-      <ProductList/>
+      <div className="grid wide">
+        <ProductListSort/>
+        <ProductList />
+        <ProductListPage/>
+      </div>
+      
     </div>
-      <h2>Shop</h2>
-    </div>
-  )
-}
-export default Shop
+  );
+};
+export default Shop;
