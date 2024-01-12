@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const productSlicer = createSlice({
   name: "product",
   initialState: {
@@ -10,14 +8,13 @@ const productSlicer = createSlice({
   reducers: {
     selectProduct(state, action) {
       let {productList, id} = action.payload;
-      // console.log(productList);
+      
       const productSelected = productList.find((product) => product.id === id);
-      // console.log(state.product);
-      // console.log(productSelected);
-      return {
-        ...state,
-        product: productSelected
-      }
+      state.product = productSelected;
+      // return {
+      //   ...state,
+      //   product: productSelected
+      // }
     },
 
     

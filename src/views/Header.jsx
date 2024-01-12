@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductList from "../components/ProductList";
 import  Cart  from "../components/Cart";
+import CartCount from "../components/CartCount";
 import Shop from "../components/Shop";
 import DetailsProduct from "../components/DetailsProduct";
 import {
@@ -17,14 +18,12 @@ import logoPetsla from "../assets/images/logofull.png";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import "../assets/styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProductList } from "../store/productListSlicer";
 
 export default function Header() {
   const { productList } = useSelector((store) => store.productList);
+  const {cart, totalTypeProductInCart} = useSelector((store) => store.cart);
   const dispatch = useDispatch();
-  console.log(productList); // check data
-  console.log("check productlist"); // check
+ 
   return (
     <Router>
       <div>
@@ -85,8 +84,8 @@ export default function Header() {
                     icon={faCartShopping}
                     className="header-mid-cart-icon"
                   />
-                  {/* <div className="header-mid-cart-count">0</div> */}
-                  <Cartcount/>
+                  <div className="header-mid-cart-count">{totalTypeProductInCart}</div>
+                  {/* <CartCount/> */}
                 </div>
               </div>
             </div>

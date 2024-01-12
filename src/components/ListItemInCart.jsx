@@ -1,14 +1,15 @@
 import React from 'react'
 import ItemIncart from './ItemInCart';
+import { useSelector } from 'react-redux';
 
 
 const ListItemInCart = () => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
+  const {cart} = useSelector((store) => store.cart);
   return (
     <div className='menu-cart__body'>
         {
-            storedCart.map((product) => {
+            cart.map((product) => {
                 return (
                   <ItemIncart item={product}/>
                 )

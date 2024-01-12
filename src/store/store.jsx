@@ -1,3 +1,4 @@
+import cartSlicer from "./cartSlicer";
 import paginationSlicer from "./paginationSlicer";
 import productListSlicer from "./productListSlicer";
 import productSlicer from "./productSlicer";
@@ -8,7 +9,8 @@ const store = configureStore({
   reducer: {
     productList: productListSlicer,
     product: productSlicer,
-    pagination: paginationSlicer
+    pagination: paginationSlicer,
+    cart: cartSlicer
   }
 })
 
