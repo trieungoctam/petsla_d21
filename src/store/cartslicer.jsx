@@ -72,6 +72,7 @@ const cartSlicer = createSlice({
 
     removeProduct(state, action) {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+      state.totalTypeProductInCart -= 1;
     }
   },
 });
