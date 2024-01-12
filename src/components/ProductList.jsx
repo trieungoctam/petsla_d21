@@ -1,27 +1,24 @@
 import React from "react";
 import ProductItem from "./ProductItem";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import {  useEffect } from "react";
+
 import  '../assets/styles/productItem.css'
+import { useDispatch, useSelector } from "react-redux";
+import { getProductList } from "../store/productListSlicer";
 
 export default function ProductList() {
-  const [productList, setProductList] = useState([]);
-  const fetchApi = async () => {
-    try {
-      const response = await axios("http://103.252.95.181:8000/products/");
-      // console.log(response);
-      const data = response.data;
-      setProductList(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
 
+  const {productList, isLoading}  = useSelector((store) => store.productList);
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetchApi();
+    dispatch(getProductList(''));
   }, []);
 
+  if (isLoading) {
+    return (
+      <div>isLoading</div>
+    )
+  }
   return (
     <div className="product-list">
         {productList.map((product) => {
@@ -32,3 +29,4 @@ export default function ProductList() {
     </div>
   );
 }
+

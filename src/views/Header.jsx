@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ProductList from '../components/ProductList'
+import ProductList from "../components/ProductList";
 import Shop from "../components/Shop";
+import DetailsProduct from "../components/DetailsProduct";
 import {
   faEnvelope,
   faPhone,
@@ -14,8 +15,15 @@ import {
 import logoPetsla from "../assets/images/logofull.png";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import "../assets/styles/header.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProductList } from "../store/productListSlicer";
 
 export default function Header() {
+  const { productList } = useSelector((store) => store.productList);
+  const dispatch = useDispatch();
+  console.log(productList); // check data
+  console.log("check productlist"); // check
   return (
     <Router>
       <div>
@@ -81,7 +89,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          
+
           <div className="header-nav grid wide">
             <ul className="header-nav-list">
               <li className="header-nav-item">
@@ -117,8 +125,18 @@ export default function Header() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/shop" element={<Shop />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/contact" element={<DetailsProduct />}></Route>
           <Route path="/account" element={<Account />}></Route>
+          {productList.map((product) => {
+            // console.log(`/product-${product.id}`);
+
+            return (
+              <Route
+                path={`/product-${product.id}`}
+                element={<DetailsProduct />}
+              ></Route>
+            );
+          })}
         </Routes>
       </div>
     </Router>
@@ -132,7 +150,13 @@ function Home() {
     </div>
   );
 }
-
+// function Shop() {
+//   return (
+//     <div>
+//       <h2>shop1</h2>
+//     </div>
+//   )
+// }
 
 function Cart() {
   return (
