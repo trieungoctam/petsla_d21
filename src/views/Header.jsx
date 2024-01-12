@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductList from "../components/ProductList";
+import  Cart  from "../components/Cart";
 import Shop from "../components/Shop";
 import DetailsProduct from "../components/DetailsProduct";
 import {
@@ -158,13 +159,13 @@ function Home() {
 //   )
 // }
 
-function Cart() {
-  return (
-    <div>
-      <h2>Cart</h2>
-    </div>
-  );
-}
+// function Cart() {
+//   return (
+//     <div>
+//       <h2>Cart</h2>
+//     </div>
+//   );
+// }
 function Contact() {
   return (
     <div>

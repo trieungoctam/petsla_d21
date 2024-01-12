@@ -1,0 +1,81 @@
+.product-img {
+  background-size: cover;
+  height: 100%;
+  margin: 0 1rem;
+  min-width: 4.5rem;
+  padding-top: 4.5rem ;
+  width: 4.5rem;
+}
+.menu-cart-item {
+  align-items: center;
+  border-bottom: 1px solid hsla(0,0%,67%,.6);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  transition: all .5s;
+}
+.product-quantity {
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+.quantity-btn {
+align-items: center;
+background-color: initial;
+border: 1px solid hsla(0,0%,46%,.3);
+border-radius: 0.375rem;
+display: flex;
+height: 1.625rem;
+justify-content: center;
+width: 1.625rem;
+
+}
+.fa-solid, .fas {
+font-weight: 900;
+border: 0px;
+margin: 0px;
+padding: 0px;
+
+}
+
+.product-info {
+display: flex;
+flex: 1 1;
+}
+.product-description {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.product-name {
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+display: -webkit-box;
+font-size: 1rem;
+line-height: 1rem;
+overflow: hidden;
+text-align: start;
+}
+.product-price {
+font-size: .825rem;
+text-align: start;
+}
+.product-total-price {
+color: orange;
+font-size: .9rem;
+font-weight: 600;
+text-align: start;
+}
+.product-button-close {
+cursor: pointer;
+}
+.btnclose {
+background-color: #fff;
+border: 0;
+color: gray;
+cursor: pointer;
+font-size: 1.5rem;
+height: 32px;
+padding: 8px;
+width: 32px;
+}
