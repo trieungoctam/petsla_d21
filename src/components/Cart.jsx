@@ -7,6 +7,7 @@ export const Cart = () => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
   const sum = storedCart.length;
   const {totalTypeProductInCart} = useSelector((store) => store.cart);
+  
   return (
     <div>
       <div className="cart-wrap grid wide">

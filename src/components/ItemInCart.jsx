@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/styles/ItemInCart.css";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/cartSlicer";
+import { cartActions } from "../store/cartslicer";
 
 const ItemIncart = ({ item }) => {
   const dispatch = useDispatch();
@@ -16,16 +16,16 @@ const ItemIncart = ({ item }) => {
             dispatch(cartActions.increaseProduct(item));
           }}
         >
-          <i className="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus" aria-hidden="true" style={{height:'12px'}}></i>
         </button>
         <span>{item.quantity}</span>
         <button
-          className="quantity-btn quantity-btn"
+          className="quantity-btn"
           onClick={() => {
             dispatch(cartActions.decreaseProduct(item));
           }}
         >
-          <i className="fa-solid fa-minus"></i>
+          <i className="fa-solid fa-minus" style={{height:'12px'}}></i>
         </button>
       </div>
 

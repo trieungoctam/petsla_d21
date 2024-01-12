@@ -111,13 +111,13 @@ width: 32px;
   width: 1.625rem;
   
 }
-.fa-solid, .fas {
+/* .fa-solid, .fas {
   font-weight: 900;
   border: 0px;
   margin: 0px;
   padding: 0px;
   
-}
+} */
 
 .product-info {
   display: flex;

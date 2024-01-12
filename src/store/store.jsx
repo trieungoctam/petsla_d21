@@ -1,4 +1,4 @@
-import cartSlicer from "./cartSlicer";
+import cartslicer from "./cartslicer";
 import paginationSlicer from "./paginationSlicer";
 import productListSlicer from "./productListSlicer";
 import productSlicer from "./productSlicer";
@@ -10,7 +10,7 @@ const store = configureStore({
     productList: productListSlicer,
     product: productSlicer,
     pagination: paginationSlicer,
-    cart: cartSlicer
+    cart: cartslicer
   }
 })
 
