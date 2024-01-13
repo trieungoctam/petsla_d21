@@ -5,7 +5,8 @@ const cartSlicer = createSlice({
   initialState: {
     cart: [],
     totalTypeProductInCart: 0,
-    isCartDrawerOpen: false
+    isCartDrawerOpen: false,
+    totalMoney : 0
   },
 
   reducers: {
@@ -27,13 +28,17 @@ const cartSlicer = createSlice({
           ...getProduct,
           quantity: updatedQuantity,
         };
+        state.totalMoney+=getProduct.price;
       } else {
         state.totalTypeProductInCart += 1;
         state.cart.push({
           ...payload,
         });
+        state.totalMoney+=payload.price;
       }
       console.log(state.totalTypeProductInCart);
+      
+      
     },
 
     increaseProduct(state, action) {
@@ -50,6 +55,7 @@ const cartSlicer = createSlice({
         ...getProduct,
         quantity: updatedQuantity,
       };
+      state.totalMoney += getProduct.price;
     },
 
     decreaseProduct(state, action) {
@@ -69,11 +75,15 @@ const cartSlicer = createSlice({
         ...getProduct,
         quantity: updatedQuantity,
       };
+      state.totalMoney -= getProduct.price;
     },
 
     removeProduct(state, action) {
-      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+       const existingProduct = state.cart.find((item) => item.id === action.payload.id);
+      state.cart = state.cart.filter((item) => item.id !== existingProduct.id);
       state.totalTypeProductInCart -= 1;
+       state.totalMoney-=existingProduct.price*existingProduct.quantity;
+  
     },
 
     closeCartDrawer(state) {

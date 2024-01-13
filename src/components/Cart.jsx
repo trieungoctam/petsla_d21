@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 export const Cart = () => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
   const sum = storedCart.length;
-  const {totalTypeProductInCart} = useSelector((store) => store.cart);
+  const {totalTypeProductInCart,totalMoney} = useSelector((store) => store.cart);
+
   
   return (
     <div>
@@ -33,8 +34,19 @@ export const Cart = () => {
           </div>
           <div className="add-order col l-4">
             <div className="add-order-wrap">
-              <div className="order-total"></div>
-              <div className="input-voucher-wrap"></div>
+              <div className="order-total">
+                <div className="order-amount">
+                  <span className="amount-title">Quantity:</span>
+                  <span className="amount-value">{`${totalTypeProductInCart} Items`}</span>
+                </div>
+                <div className="order-amount">
+                  <span className="amount-title">Total Price:</span>
+                  <span className="amount-value">{`${totalMoney} đ`}</span>
+                </div>
+              </div>
+              <div className="input-voucher-wrap">
+                <input className="input-voucher" type="text" placeholder="Voucher"/>
+              </div>
               <button
                 type="button"
                 className="menu-cart-btn btn-primary check-out"
