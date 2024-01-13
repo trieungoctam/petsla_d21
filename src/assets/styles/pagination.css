@@ -18,9 +18,11 @@
 .page-item {
   background-color: initial;
   border: 0.5px solid #dee2e6;
-  color: #e69646;
+  color: black;
   cursor: pointer;
   height: 2.25rem;
+  font-size: 1.2rem;
+  padding: .375rem .75rem;
 }
 .pagination {
   background: white;
