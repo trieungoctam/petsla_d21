@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "../store/productSlicer";
 import { getProductList } from "../store/productListSlicer";
 import { toast } from "react-toastify";
-import { cartActions } from "../store/cartslicer";
+import { cartActions } from "../store/cartSlicer";
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductItem({ id, productName, price, images }) {

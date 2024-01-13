@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductList from "../components/ProductList";
 import  Cart  from "../components/Cart";
-import Cartcount from "../components/Cartcount";
+import CartCount from "../components/CartCount";
 import Shop from "../components/Shop";
 import DetailsProduct from "../components/DetailsProduct";
 import {
