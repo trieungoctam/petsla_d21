@@ -75,7 +75,7 @@ const cartSlicer = createSlice({
         ...getProduct,
         quantity: updatedQuantity,
       };
-      if(state.totalMoney>0){
+      if(state.totalMoney>0 && getProduct.quantity>1){
         state.totalMoney -= getProduct.price;
       }
      
