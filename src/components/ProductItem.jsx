@@ -97,6 +97,16 @@ export default function ProductItem({ id, productName, price, images }) {
                   quantity: 1,
                 })
               );
+              toast.success("Add to cart successfuly!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
             }}
           >
             <FontAwesomeIcon icon={faCartPlus} className="item-cart-icon" />
