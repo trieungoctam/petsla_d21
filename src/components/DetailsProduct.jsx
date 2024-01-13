@@ -9,10 +9,11 @@ export default function DetailsProduct() {
   const { product } = useSelector((store) => store.product);
   const { productList, isLoading } = useSelector((store) => store.productList);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProductList(""));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getProductList(""));
+  // }, []);
   console.log(productList);
+  console.log(product);
   return (
     <div className="grid wide">
       <div className="item-container">
@@ -31,7 +32,11 @@ export default function DetailsProduct() {
             <div
               className="button-container-add item-container-button-button"
               onClick={() => {
-                dispatch(cartActions.addToCart(product));
+                const newProduct = {
+                  ...product,
+                  quantity : 1,
+                }
+                dispatch(cartActions.addToCart(newProduct));
                 toast.success("Add to cart successfuly!", {
                   position: "top-right",
                   autoClose: 5000,
