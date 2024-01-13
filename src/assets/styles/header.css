@@ -128,8 +128,12 @@
 
 .header-mid-cart-icon {
   font-size: 1.5em;
+  cursor: pointer;
 }
 
+.header-mid-cart-icon:hover {
+  color: orange;
+}
 .header-mid-cart-count {
   background-color: orange;
   border-radius: 50%;
