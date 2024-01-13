@@ -9,12 +9,11 @@ import { productActions } from "../store/productSlicer";
 import { getProductList } from "../store/productListSlicer";
 import { toast } from "react-toastify";
 import { cartActions } from "../store/cartSlicer";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductItem({ id, productName, price, images }) {
   const dispatch = useDispatch();
   const { productList } = useSelector((store) => store.productList);
-  
 
   // const [cart, setCart] = useState([]);
   //State để quản lý số lượng sản phẩm trong giỏ hàng
@@ -22,16 +21,16 @@ export default function ProductItem({ id, productName, price, images }) {
   // const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   // const handleAddToCart = () => {
-  //   toast.success("Add to cart successfuly!", {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //   });
+  // toast.success("Add to cart successfuly!", {
+  //   position: "top-right",
+  //   autoClose: 5000,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "light",
+  // });
   //   saveToLocal();
   // };
 
@@ -91,23 +90,13 @@ export default function ProductItem({ id, productName, price, images }) {
             onClick={() => {
               dispatch(
                 cartActions.addToCart({
-                  id ,
-                  productName ,
+                  id,
+                  productName,
                   price,
                   images,
                   quantity: 1,
                 })
               );
-              toast.success("Add to cart successfuly!", {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
             }}
           >
             <FontAwesomeIcon icon={faCartPlus} className="item-cart-icon" />
