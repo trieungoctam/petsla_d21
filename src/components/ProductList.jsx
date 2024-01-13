@@ -22,6 +22,7 @@ export default function ProductList() {
   console.log(productList);
   console.log(currentPosts);
 
+  
   if (isLoading) {
     return (
       <div>isLoading</div>
@@ -31,7 +32,7 @@ export default function ProductList() {
     <div className="product-list">
         {currentPosts.map((product) => {
           return (
-            <ProductItem id={product.id} productName={product.product_name} price = {product.price} images={product.images}/>
+            <ProductItem id={product.id} productName={product.product_name} price = {product.price.toLocaleString('en-US').replace(/,/g, '.')} images={product.images}/>
           )
         })}
         
