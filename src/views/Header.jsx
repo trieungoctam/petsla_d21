@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductList from "../components/ProductList";
-import  Cart  from "../components/Cart";
+import Cart from "../components/Cart";
 // import CartCount from "../components/CartCount";
 import Shop from "../components/Shop";
 import DetailsProduct from "../components/DetailsProduct";
@@ -18,16 +18,19 @@ import logoPetsla from "../assets/images/logofull.png";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import "../assets/styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
+import CartDrawer from "../components/CartDrawer";
+import { cartActions } from "../store/cartSlicer";
 
 export default function Header() {
   const { productList } = useSelector((store) => store.productList);
-  const {cart, totalTypeProductInCart} = useSelector((store) => store.cart);
+  const { cart, totalTypeProductInCart } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
- 
+
   return (
     <Router>
       <div>
         <div className="header-wrapper">
+          <CartDrawer />
           <div className="header-higher-wraper">
             <div className="grid wide">
               <div className="header-higher">
@@ -79,12 +82,19 @@ export default function Header() {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </div>
                 </div>
-                <div className="header-mid-cart">
+                <div
+                  className="header-mid-cart"
+                  onClick={() => {
+                    dispatch(cartActions.openCartDrawer());
+                  }}
+                >
                   <FontAwesomeIcon
                     icon={faCartShopping}
                     className="header-mid-cart-icon"
                   />
-                  <div className="header-mid-cart-count">{totalTypeProductInCart}</div>
+                  <div className="header-mid-cart-count">
+                    {totalTypeProductInCart}
+                  </div>
                   {/* <CartCount/> */}
                 </div>
               </div>

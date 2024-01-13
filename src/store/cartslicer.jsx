@@ -5,6 +5,7 @@ const cartSlicer = createSlice({
   initialState: {
     cart: [],
     totalTypeProductInCart: 0,
+    isCartDrawerOpen: false
   },
 
   reducers: {
@@ -73,6 +74,14 @@ const cartSlicer = createSlice({
     removeProduct(state, action) {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
       state.totalTypeProductInCart -= 1;
+    },
+
+    closeCartDrawer(state) {
+      state.isCartDrawerOpen = false;
+    },
+
+    openCartDrawer(state) {
+      state.isCartDrawerOpen = true;
     }
   },
 });
