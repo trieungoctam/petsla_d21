@@ -62,16 +62,25 @@
   padding: 0.375rem 0.5rem;
   width: 8.5rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .button-container-buy {
   border: 1px solid orange;
   color: orange;
+
+
 }
 
+.button-container-buy:hover {
+  background-color: orange;
+  color: white;
+}
 .button-container-add {
   background-color: orange;
   color: #fff;
+
+
 }
 
 .item-container-info-wrap {

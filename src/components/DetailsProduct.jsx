@@ -3,13 +3,14 @@ import "../assets/styles/detailsProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductList } from "../store/productListSlicer";
 import { useEffect } from "react";
-
+import { cartActions } from "../store/cartSlicer";
+import { toast } from "react-toastify";
 export default function DetailsProduct() {
   const { product } = useSelector((store) => store.product);
-  const {productList, isLoading}  = useSelector((store) => store.productList);
+  const { productList, isLoading } = useSelector((store) => store.productList);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProductList(''));
+    dispatch(getProductList(""));
   }, []);
   console.log(productList);
   return (
@@ -25,10 +26,25 @@ export default function DetailsProduct() {
           <div className="item-container-price">{product.price}d</div>
           <div className="item-container-button">
             <div className="button-container-buy item-container-button-button">
-              buy now
+              Buy Now
             </div>
-            <div className="button-container-add item-container-button-button">
-              add to cart
+            <div
+              className="button-container-add item-container-button-button"
+              onClick={() => {
+                dispatch(cartActions.addToCart(product));
+                toast.success("Add to cart successfuly!", {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+              }}
+            >
+              Add to Cart
             </div>
           </div>
           <div className="item-container-info-wrap">

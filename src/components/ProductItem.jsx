@@ -21,16 +21,7 @@ export default function ProductItem({ id, productName, price, images }) {
   // const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   // const handleAddToCart = () => {
-  // toast.success("Add to cart successfuly!", {
-  //   position: "top-right",
-  //   autoClose: 5000,
-  //   hideProgressBar: false,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: undefined,
-  //   theme: "light",
-  // });
+
   //   saveToLocal();
   // };
 
@@ -97,6 +88,16 @@ export default function ProductItem({ id, productName, price, images }) {
                   quantity: 1,
                 })
               );
+              toast.success("Add to cart successfuly!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
               toast.success("Add to cart successfuly!", {
     position: "top-right",
     autoClose: 5000,

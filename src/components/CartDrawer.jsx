@@ -4,7 +4,7 @@ import { cartActions } from "../store/cartSlicer";
 import ListItemInCart from "./ListItemInCart";
 
 function CartDrawer() {
-  const { isCartDrawerOpen, totalTypeProductInCart } = useSelector((store) => store.cart);
+  const { isCartDrawerOpen, totalTypeProductInCart, totalMoney } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
   return (
     <Drawer
@@ -22,6 +22,10 @@ function CartDrawer() {
             </div>
           </div>
           <ListItemInCart />
+          <div className="menu-cart_footer">
+            <button className="menu-cart-btn btn-primary">{`Checkout(${totalMoney})`}</button>
+            <button className="menu-cart-btn btn-view-cart">View Cart</button>
+          </div>
         </div>
       </Box>
     </Drawer>
