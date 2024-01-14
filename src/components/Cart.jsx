@@ -41,7 +41,7 @@ export const Cart = () => {
                 </div>
                 <div className="order-amount">
                   <span className="amount-title">Total Price:</span>
-                  <span className="amount-value">{`${totalMoney} đ`}</span>
+                  <span className="amount-value">{`${totalMoney.toLocaleString('en-US').replace(/,/g, '.')} đ`}</span>
                 </div>
               </div>
               <div className="input-voucher-wrap">

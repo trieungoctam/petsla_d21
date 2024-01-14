@@ -24,6 +24,8 @@ const productListSlicer = createSlice({
   },
 
   reducers: {
+
+    
     sortProductsByRelevance(state, action) {
       state.productList.sort((a, b) => a.id - b.id);
     },
@@ -55,6 +57,10 @@ const productListSlicer = createSlice({
         return priceB - priceA;
       });
     },
+
+    sortBySearch(state, action) {
+      state.productList.filter((product) => product.product_name.toLowerCase().includes(action.payload.toLowerCase()));
+    }
   },
 
   extraReducers: (builder) => {

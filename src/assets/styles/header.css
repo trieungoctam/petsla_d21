@@ -95,6 +95,7 @@
   align-items: center;
   line-height: 1.5;
   position: relative;
+  cursor: pointer;
 }
 
 .header-mid-search-input {

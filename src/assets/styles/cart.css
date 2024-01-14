@@ -140,6 +140,7 @@
 .btn-view-cart {
     background-color: #e69646;
     color: #fff;
+    /* width: 100%; */
 }
 .btn-primary:hover {
     background-color: orange;

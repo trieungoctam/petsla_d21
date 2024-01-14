@@ -24,7 +24,7 @@ export default function DetailsProduct() {
         />
         <div className="item-container-content col c-6 mb-12">
           <div className="item-container-title">{product.product_name}</div>
-          <div className="item-container-price">{product.price}d</div>
+          <div className="item-container-price">{product.price.toLocaleString('en-US').replace(/,/g, '.')}đ</div>
           <div className="item-container-button">
             <div className="button-container-buy item-container-button-button">
               Buy Now

@@ -39,8 +39,8 @@ const ItemIncart = ({ item }) => {
 
         <div className="product-description">
           <div className="product-name">{item.productName}</div>
-          <div className="product-price">{`${item.price}đ x ${item.quantity}`}</div>
-          <div className="product-total-price">{`${sum}đ`}</div>
+          <div className="product-price">{`${item.price.toLocaleString('en-US').replace(/,/g, '.')}đ x ${item.quantity}`}</div>
+          <div className="product-total-price">{`${sum.toLocaleString('en-US').replace(/,/g, '.')}đ`}</div>
         </div>
       </div>
       <div
