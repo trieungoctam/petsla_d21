@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ProductList from "../components/ProductList";
 import Cart from "../components/Cart";
 // import CartCount from "../components/CartCount";
 import Shop from "../components/Shop";
 import DetailsProduct from "../components/DetailsProduct";
+import { Login } from "../components/Login";
+
+
 import {
   faEnvelope,
   faPhone,
@@ -15,7 +18,7 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import logoPetsla from "../assets/images/logofull.png";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import {Link, Route, Routes, useNavigate } from "react-router-dom";
 import "../assets/styles/header.css";
 import { useDispatch, useSelector } from "react-redux";
 import CartDrawer from "../components/CartDrawer";
@@ -25,9 +28,27 @@ export default function Header() {
   const { productList } = useSelector((store) => store.productList);
   const { cart, totalTypeProductInCart } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  const pathAccount = useRef(null);
+  const navigate = useNavigate();
+
+  const handleEvent = (e) => {
+    e.preventDefault();
+    const path = (localStorage.getItem("token") !== null) ? "/account" : "/login";
+    navigate(path);
+    console.log(pathAccount.current.href);
+  };
+
+  const handleAuth = () => {
+    if (localStorage.getItem("token") === null) {
+      navigate("/login");
+    }else{
+      localStorage.removeItem("token");
+      navigate("/");
+    }
+  }
 
   return (
-    <Router>
+ 
       <div>
         <div className="header-wrapper">
           <CartDrawer />
@@ -52,7 +73,7 @@ export default function Header() {
                   <div className="header-higher-btn-theme">
                     <FontAwesomeIcon icon={faMoon} />
                   </div>
-                  <div className="header-higher-btn-auth">
+                  <div className="header-higher-btn-auth" onClick={() => handleAuth()}>
                     <FontAwesomeIcon icon={faRightFromBracket} />
                   </div>
                 </div>
@@ -123,9 +144,18 @@ export default function Header() {
                   Contact
                 </Link>
               </li>
-              <li className="header-nav-item">
-                <Link to="/account" className="header-nav-item-link">
+              <li className="header-nav-item"
+              >
+                <Link to="/login" className="header-nav-item-link" ref={pathAccount} >
                   Account
+                  <button style={{
+                    position: "relative",
+                    top : "-50%",
+                    width: "100%",
+                    height: "100%",
+                    opacity: "0",
+                    cursor: "pointer",
+                  }} onClick={(e) => handleEvent(e)}></button>
                 </Link>
               </li>
             </ul>
@@ -138,6 +168,7 @@ export default function Header() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/contact" element={<DetailsProduct />}></Route>
           <Route path="/account" element={<Account />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           {productList.map((product) => {
             // console.log(`/product-${product.id}`);
 
@@ -150,7 +181,6 @@ export default function Header() {
           })}
         </Routes>
       </div>
-    </Router>
   );
 }
 
